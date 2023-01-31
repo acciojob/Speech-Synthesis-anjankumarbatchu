@@ -38,16 +38,49 @@
 
   //Your code goes here
 
-  speakButton.addEventListener("click", ()=>{
-    msg.rate = options[0].value;
-    msg.pitch = options[1].value;
-    msg.text = options[2].value;
-    window.speechSynthesis.speak(msg);
-  });
+  // speakButton.addEventListener("click", ()=>{
+  //   msg.rate = options[0].value;
+  //   msg.pitch = options[1].value;
+  //   msg.text = options[2].value;
+  //   window.speechSynthesis.speak(msg);
+  // });
 
-  stopButton.addEventListener("click", ()=>{
-    window.speechSynthesis.cancel();
-  });
+  // stopButton.addEventListener("click", ()=>{
+  //   window.speechSynthesis.cancel();
+  // });
+
+
+  function populateVoices() {
+      voices = this.getVoices();
+      voicesDropdown.innerHTML = voices
+        .filter(voice => voice.lang.includes('en'))
+        .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+        .join('');
+    }
+
+    function setVoice() {
+      msg.voice = voices.find(voice => voice.name === this.value);
+      toggle();
+    }
+
+    function toggle(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+
+    function setOption() {
+      msg[this.name] = this.value;
+      toggle();
+    }
+
+    speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    voicesDropdown.addEventListener('change', setVoice);
+    options.forEach(option => option.addEventListener('change', setOption));
+    speakButton.addEventListener('click', toggle);
+    stopButton.addEventListener('click', () => toggle(false));
+  
 
 
 </script>
