@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
 });
 //your code here
 
-const msg = new SpeechSynthesisUtterance();
-  let voices = [];
-  const voicesDropdown = document.querySelector('[name="voice"]');
-  const options = document.querySelectorAll('[type="range"], [name="text"]');
-  const speakButton = document.querySelector('#speak');
-  const stopButton = document.querySelector('#stop');
+// const msg = new SpeechSynthesisUtterance();
+//   let voices = [];
+//   const voicesDropdown = document.querySelector('[name="voice"]');
+//   const options = document.querySelectorAll('[type="range"], [name="text"]');
+//   const speakButton = document.querySelector('#speak');
+//   const stopButton = document.querySelector('#stop');
 
   // speakButton.addEventListener("click", ()=>{
   //   msg.rate = options[0].value;
