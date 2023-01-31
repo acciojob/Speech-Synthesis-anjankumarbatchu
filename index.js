@@ -21,16 +21,16 @@ const msg = new SpeechSynthesisUtterance();
   const speakButton = document.querySelector('#speak');
   const stopButton = document.querySelector('#stop');
 
-  speakButton.addEventListener("click", ()=>{
-    msg.rate = options[0].value;
-    msg.pitch = options[1].value;
-    msg.text = options[2].value;
-    window.speechSynthesis.speak(msg);
-  });
+  // speakButton.addEventListener("click", ()=>{
+  //   msg.rate = options[0].value;
+  //   msg.pitch = options[1].value;
+  //   msg.text = options[2].value;
+  //   window.speechSynthesis.speak(msg);
+  // });
 
-  stopButton.addEventListener("click", ()=>{
-    window.speechSynthesis.cancel();
-  });
+  // stopButton.addEventListener("click", ()=>{
+  //   window.speechSynthesis.cancel();
+  // });
 
 
 
